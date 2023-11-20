@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    
+<body>
+    <div class="container">
+        <h1>Building Parameter Input</h1>
+        <form action="/predict" method="post">
+            <label for="X1">Relative Compactness:</label>
+            <input type="text" id="X1" name="X1"><br><br>
+            <label for="X2">Surface Area:</label>
+            <input type="text" id="X2" name="X2"><br><br>
+            <label for="X3">Wall Area:</label>
+            <input type="text" id="X3" name="X3"><br><br>
+            <label for="X4">Roof Area:</label>
+            <input type="text" id="X4" name="X4"><br><br>
+            <label for="X5">Overall height:</label>
+            <input type="text" id="X5" name="X5"><br><br>
+            <label for="X6">Orientation:</label>
+            <input type="text" id="X6" name="X6"><br><br>
+            <label for="X7">Glazing Area:</label>
+            <input type="text" id="X7" name="X7"><br><br>
+            <label for="X8">Glazing Area Distribution:</label>
+            <input type="text" id="X8" name="X8"><br><br>
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+</body>
+</html>

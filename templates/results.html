@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+<body>
+    <div class="container">
+        <h1>Results</h1>
+        <h2>Input Values:</h2>
+        <ul>
+            {% for key, value in results.inputs.items() %}
+            <li>{{ key }}: {{ value }}</li>
+            {% endfor %}
+        </ul>
+        <h2>Predictions:</h2>
+        <p>Heating Load: {{ results.heating_load }}</p>
+        <p>Cooling Load: {{ results.cooling_load }}</p>
+
+        <a href="/">Make another prediction</a>
+    </div>    
+</body>
+</html>
