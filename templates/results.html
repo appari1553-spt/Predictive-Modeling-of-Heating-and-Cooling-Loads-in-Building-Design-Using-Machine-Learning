@@ -8,8 +8,8 @@
         <h1>Results</h1>
         <h2>Input Values:</h2>
         <ul>
-            {% for key, value in results.inputs.items() %}
-            <li>{{ key }}: {{ value }}</li>
+            {% for name, value in results.inputs.items() %}
+            <li>{{ name }}: {{ value }}</li>
             {% endfor %}
         </ul>
         <h2>Predictions:</h2>
