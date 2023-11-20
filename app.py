@@ -22,9 +22,9 @@ def predict():
         'X2' : request.form.get('X2', type=float),
         'X4' : request.form.get('X4', type=float),
         'X5' : request.form.get('X5', type=float),
-        'X6' : request.form.get('X6', type=float),
+        'X6' : request.form.get('X6', type=int),
         'X7' : request.form.get('X7', type=float),
-        'X8' : request.form.get('X8', type=float)
+        'X8' : request.form.get('X8', type=int)
     }
 
     # Prepare the input data in the format your model expects
