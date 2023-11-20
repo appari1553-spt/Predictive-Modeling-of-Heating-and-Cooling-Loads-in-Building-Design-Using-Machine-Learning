@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, jsonify
 import joblib
-import os
 
 app = Flask(__name__)
 
@@ -13,23 +12,23 @@ def index():
     return render_template('index.html')  # Render the input form
 
 @app.route('/predict', methods=['POST'])
-
-
 def predict():
     # Extract inputs from form
     input_values = {
-        'X1' : request.form.get('X1', type=float),
-        'X3' : request.form.get('X3', type=float),
-        'X2' : request.form.get('X2', type=float),
-        'X4' : request.form.get('X4', type=float),
-        'X5' : request.form.get('X5', type=float),
-        'X6' : request.form.get('X6', type=int),
-        'X7' : request.form.get('X7', type=float),
-        'X8' : request.form.get('X8', type=int)
+        'Relative Compactness' : request.form.get('X1', type=float),
+        'Surface Area' : request.form.get('X2', type=float),
+        'Wall Area' : request.form.get('X3', type=float),
+        'Roof Area' : request.form.get('X4', type=float),
+        'Overall Height' : request.form.get('X5', type=float),
+        'Orientation' : request.form.get('X6', type=int),
+        'Glazing Area' : request.form.get('X7', type=float),
+        'Glazing Area Distribution' : request.form.get('X8', type=int)
     }
 
     # Prepare the input data in the format your model expects
-    input_data = list(input_values.values())
+    input_data = [input_values['Relative Compactness'], input_values['Surface Area'], input_values['Wall Area'],
+                  input_values['Roof Area'], input_values['Overall Height'], input_values['Orientation'],
+                  input_values['Glazing Area'], input_values['Glazing Area Distribution']]
     
     # Make predictions
     heating_load = rf_model.predict([input_data])[0]
@@ -46,5 +45,4 @@ def predict():
     return render_template('results.html', results=results)
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=False)
+    app.run(debug=True)
